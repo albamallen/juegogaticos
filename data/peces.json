@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "nombre": "verdemarron",
+        "foto": "../assets/pez1.png",
+        "info": "pez1 info"
+    },
+    {
+        "id": 2,
+        "nombre": "goldfish",
+        "foto": "../assets/pez2.png",
+        "info": "pez2 info"
+    },
+    {
+        "id": 3,
+        "nombre": "circulos",
+        "foto": "../assets/pez3.png",
+        "info": "pez3 info"
+    },
+    {
+        "id": 4,
+        "nombre": "clorinchis",
+        "foto": "../assets/pez4.png",
+        "info": "pez4 info"
+    }, {
+        "id": 5,
+        "nombre": "morado",
+        "foto": "../assets/pez5.png",
+        "info": "pez5 info"
+    }, {
+        "id": 6,
+        "nombre": "verdepuntos",
+        "foto": "../assets/pez6.png",
+        "info": "pez6 info"
+    }
+]

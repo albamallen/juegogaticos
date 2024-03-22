@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "nombre": "Guisantes",
+        "foto": "../assets/cardenal1.png",
+        "info": true
+    },
+    {
+        "id": 2,
+        "nombre": "Zanahoria",
+        "foto": "../assets/picogordotigrillo2.png",
+        "info": true
+    },
+    {
+        "id": 3,
+        "nombre": "Huevo cocido",
+        "foto": "../assets/azulejodelasmontañas3.png",
+        "info": true
+    },
+    {
+        "id": 4,
+        "nombre": "Brocoli",
+        "foto": "../assets/gorrion4.png",
+        "info": true
+    },
+    {
+        "id": 5,
+        "nombre": "Sandia",
+        "foto": "../assets/picogrueso5.png",
+        "info": true
+    },
+    {
+        "id": 6,
+        "nombre": "Melocotón",
+        "foto": "../assets/martingigante6.png",
+        "info": true
+    },
+    {
+        "id": 7,
+        "nombre": "Chorizo",
+        "foto": "../assets/pez1.png",
+        "info": false
+    },
+    {
+        "id": 8,
+        "nombre": "Cebolla",
+        "foto": "../assets/pez2.png",
+        "info": false
+    },
+    {
+        "id": 9,
+        "nombre": "Chocolate",
+        "foto": "../assets/pez3.png",
+        "info": false
+    },
+    {
+        "id": 10,
+        "nombre": "Uva",
+        "foto": "../assets/pez4.png",
+        "info": false
+    },
+    {
+        "id": 11,
+        "nombre": "Aguacate",
+        "foto": "../assets/pez5.png",
+        "info": false
+    },
+    {
+        "id": 12,
+        "nombre": "Naranja",
+        "foto": "../assets/pez6.png",
+        "info": false
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "nombre": "Cardenal",
+        "foto": "../assets/cardenal1.png",
+        "info": "cardenal info"
+    },
+    {
+        "id": 2,
+        "nombre": "Pico Gordo Tigrillo",
+        "foto": "../assets/picogordotigrillo2.png",
+        "info": "Pico Gordo Tigrillo info"
+    },
+    {
+        "id": 3,
+        "nombre": "Azulejo de las Montañas",
+        "foto": "../assets/azulejodelasmontañas3.png",
+        "info": "azulejol info"
+    },
+    {
+        "id": 4,
+        "nombre": "Gorrión",
+        "foto": "../assets/gorrion4.png",
+        "info": "gorrion info"
+    }, {
+        "id": 5,
+        "nombre": "Pico grueso",
+        "foto": "../assets/picogrueso5.png",
+        "info": "picogrueso info"
+    }, {
+        "id": 6,
+        "nombre": "Martín Gigante",
+        "foto": "../assets/martingigante6.png",
+        "info": "martin info"
+    }
+
+]
