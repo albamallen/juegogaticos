@@ -3,7 +3,7 @@ class PantallaStart extends Phaser.Scene {
         super({ key: 'PantallaStart' });
     }
     preload() {
-        this.load.image('backgroundPuerta', 'assets/puerta.jpg');
+        this.load.image('backgroundPuerta', 'assets/puerta.JPG');
         this.load.audio('door', 'assets/door.mp3');
     }
     create() {
