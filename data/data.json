@@ -3,35 +3,35 @@
         "id": 1,
         "nombre": "Cardenal",
         "foto": "../assets/cardenal1.png",
-        "info": "cardenal info"
+        "info": "El pájaro cardenal, conocido por su llamativo plumaje rojo brillante y su distintiva cresta en forma de copa, es una especie emblemática en el mundo de las aves. Originario de América del Norte y América del Sur, este pájaro es popular entre los observadores de aves por su belleza y su canto melodioso. Los cardenales son aves territoriales y monógamas, formando parejas fuertes que defienden su territorio con energía. A menudo se les puede encontrar en áreas boscosas, jardines y parques, donde se alimentan de semillas, frutas e insectos. Su presencia vibrante y su dulce canto los convierten en una delicia tanto para los ojos como para los oídos, añadiendo un toque de color y alegría a su entorno natural."
     },
     {
         "id": 2,
         "nombre": "Pico Gordo Tigrillo",
         "foto": "../assets/picogordotigrillo2.png",
-        "info": "Pico Gordo Tigrillo info"
+        "info": "El pájaro pico gordo tigrillo, también conocido como el martín pescador tigrillo, es una especie fascinante que habita en las regiones tropicales de América Central y del Sur. Este pájaro destaca por su plumaje colorido, con tonos vibrantes de azul, naranja y blanco, que le proporcionan camuflaje en los entornos acuáticos donde habita. Su nombre proviene de su característico pico grande y robusto, adaptado para atrapar peces y otros pequeños animales acuáticos. A menudo se les puede ver cerca de ríos, lagos y manglares, donde se lanzan desde perchas elevadas para sumergirse en el agua y capturar a sus presas con precisión. Estos pájaros son admirados por su habilidad para pescar y por su belleza única, añadiendo un toque de color y vitalidad a los ecosistemas acuáticos que llaman hogar."
     },
     {
         "id": 3,
         "nombre": "Azulejo de las Montañas",
         "foto": "../assets/azulejodelasmontañas3.png",
-        "info": "azulejol info"
+        "info": "El pájaro azulejo de las montañas, también conocido como el tangara cyanochlamys, es una especie de ave que habita en los bosques nubosos de América Central y del Sur. Destaca por su plumaje vibrante y colorido, con tonos azules, verdes y amarillos que crean un espectáculo visual en los densos follajes de las montañas. Estas aves son conocidas por su comportamiento activo y social, a menudo se les ve en grupos buscando insectos y frutas en las copas de los árboles. Su canto melódico y distintivo añade una atmósfera musical a los bosques donde residen, siendo una parte integral de los ecosistemas montañosos. Sin embargo, su hábitat se ve amenazado por la deforestación y el cambio climático, lo que resalta la importancia de conservar estos espacios naturales para la supervivencia de esta especie y de muchas otras."
     },
     {
         "id": 4,
         "nombre": "Gorrión",
         "foto": "../assets/gorrion4.png",
-        "info": "gorrion info"
+        "info": "El gorrión, pequeño y común, es una figura familiar en paisajes urbanos y rurales de todo el mundo. Reconocido por su plumaje marrón y su distintivo pico cónico, los gorriones se adaptan fácilmente a una variedad de entornos, desde parques y jardines hasta granjas y áreas urbanas. Estas aves sociales se agrupan en bandadas, donde su constante gorjeo y su actividad incesante añaden vida a cualquier entorno. Se alimentan principalmente de semillas, aunque también consumen insectos y otros pequeños invertebrados. A pesar de su familiaridad, los gorriones enfrentan desafíos en entornos urbanos debido a la pérdida de hábitat y la disminución de fuentes de alimento, lo que destaca la importancia de conservar espacios verdes para estas queridas aves."
     }, {
         "id": 5,
         "nombre": "Pico grueso",
         "foto": "../assets/picogrueso5.png",
-        "info": "picogrueso info"
+        "info": "El pájaro pico grueso es una especie peculiar y distintiva que habita principalmente en los bosques tropicales de América Central y del Sur. Conocido científicamente como Rhynchocyclus, este ave se caracteriza por su pico ancho y robusto, adaptado para romper semillas duras y frutas. Su plumaje suele ser de colores apagados, lo que le permite camuflarse entre el denso follaje de la selva. A menudo se les encuentra en parejas o grupos pequeños, explorando en busca de su alimento principal, que incluye una variedad de frutas, bayas e insectos. Su presencia en los bosques es crucial para la dispersión de semillas y el mantenimiento del equilibrio ecológico, lo que subraya su importancia dentro de estos delicados ecosistemas tropicales."
     }, {
         "id": 6,
         "nombre": "Martín Gigante",
         "foto": "../assets/martingigante6.png",
-        "info": "martin info"
+        "info": "El pájaro martín gigante, también conocido como martinete gigante o jabirú, es una impresionante ave que habita en los humedales y las zonas pantanosas de América del Sur y Central. Destaca por su gran tamaño, con una envergadura que puede alcanzar los tres metros y una altura que supera el metro y medio. Su plumaje es mayormente blanco, con plumas primarias y secundarias negras, y su cabeza y cuello desnudos presentan un tono rosado. Estos majestuosos pájaros se alimentan principalmente de peces, ranas y crustáceos, y son conocidos por su distintivo vuelo lento y majestuoso sobre los pantanos. Aunque se encuentran principalmente en áreas protegidas, enfrentan amenazas como la pérdida de hábitat y la contaminación, lo que subraya la importancia de conservar estos frágiles ecosistemas para la supervivencia de esta especie emblemática."
     }
 
 ]
