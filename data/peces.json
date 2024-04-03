@@ -1,36 +1,38 @@
 [
     {
         "id": 1,
-        "nombre": "verdemarron",
+        "nombre": "Pez Ángel",
         "foto": "../assets/pez1.png",
-        "info": "pez1 info"
+        "info": "El pez ángel, perteneciente a la familia Cichlidae, es conocido por su belleza y colorido en el mundo de la acuariofilia. Conocido científicamente como Pterophyllum, este pez es originario de las aguas dulces de América del Sur, específicamente de la cuenca del río Amazonas. Su forma distintiva, con un cuerpo comprimido lateralmente y aletas alargadas, lo convierte en una especie popular entre los aficionados a los acuarios. Los peces ángel son omnívoros, y su dieta puede variar desde alimentos vivos hasta alimentos secos comerciales. Son peces territoriales y pacíficos, pero pueden volverse agresivos durante la cría o si el espacio es limitado en el acuario. Su reproducción en cautiverio es posible y ha sido bien documentada, lo que ha contribuido a su presencia continua en el mercado de la acuariofilia."
     },
     {
         "id": 2,
-        "nombre": "goldfish",
+        "nombre": "Pez Goldfish",
         "foto": "../assets/pez2.png",
-        "info": "pez2 info"
+        "info": "El pez goldfish, Carassius auratus, es un verdadero tesoro en el mundo de la acuariofilia, admirado por su elegante cuerpo redondeado y una rica paleta de colores que van desde el clásico naranja hasta el blanco perlado y el rojo intenso. Originario de Asia Oriental, este pez ha sido objeto de selección artificial durante siglos, lo que ha dado lugar a una fascinante diversidad de formas y tamaños. Conocidos por su adaptabilidad y resistencia, los goldfish prosperan en una amplia gama de condiciones de agua, lo que los convierte en una opción popular para aficionados de todos los niveles. Con el cuidado adecuado, estos peces pueden vivir muchos años, convirtiéndose en compañeros encantadores y tranquilizadores en cualquier acuario doméstico."
     },
     {
         "id": 3,
-        "nombre": "circulos",
+        "nombre": "Pez Guppy",
         "foto": "../assets/pez3.png",
-        "info": "pez3 info"
+        "info": "El guppy, Poecilia reticulata, es un pequeño pez tropical que ha cautivado a los aficionados de la acuariofilia por su vibrante colorido y su comportamiento animado. Originario de América Central y del Sur, el guppy es conocido por su facilidad de reproducción y su capacidad para adaptarse a una variedad de condiciones de agua. Los machos exhiben aletas largas y coloridas, mientras que las hembras tienden a ser más grandes y menos vistosas. Su naturaleza pacífica los hace compatibles con una variedad de compañeros de tanque, y su hábito de consumir larvas de mosquitos los convierte en aliados útiles en el control de plagas en el acuario. Con el cuidado adecuado, los guppys pueden prosperar y alegrar cualquier acuario con su presencia activa y colorida."
     },
     {
         "id": 4,
-        "nombre": "clorinchis",
+        "nombre": "Pez Tetra Neón",
         "foto": "../assets/pez4.png",
-        "info": "pez4 info"
-    }, {
+        "info": "El tetra neon, Paracheirodon innesi, es un pequeño pez tropical que brilla en cualquier acuario con su colorido distintivo y su comportamiento activo. Originario de las aguas dulces de América del Sur, es conocido por su llamativo patrón de coloración azul eléctrico y rojo intenso que recorre su cuerpo. Estos peces son pacíficos por naturaleza y se sienten más cómodos en grupos, donde pueden nadar libremente. Además de su atractivo estético, los tetras neón son relativamente fáciles de cuidar y son una excelente opción para los principiantes en la acuariofilia. Con una dieta equilibrada y un entorno adecuado, estos pequeños peces pueden prosperar y agregar una vibrante energía a cualquier tanque comunitario."
+    },
+    {
         "id": 5,
-        "nombre": "morado",
+        "nombre": "Pez cabeza de León",
         "foto": "../assets/pez5.png",
-        "info": "pez5 info"
-    }, {
+        "info": "El pez cabeza de león, también conocido como pez león, es una criatura fascinante que encanta a los aficionados de la acuariofilia con su apariencia única y su comportamiento majestuoso. Originario de los arrecifes de coral del Indo-Pacífico, este pez destaca por su distintiva cabeza adornada con una melena de espinas venenosas, que utiliza tanto para intimidar a los depredadores como para cazar presas más pequeñas. Su cuerpo está adornado con vibrantes patrones y colores, lo que lo convierte en un verdadero espectáculo en cualquier acuario marino. Aunque requiere cuidados específicos debido a su dieta carnívora y su potencial para crecer considerablemente, el pez cabeza de león recompensa a los cuidadores con su belleza única y su presencia impresionante en el tanque."
+    },
+    {
         "id": 6,
-        "nombre": "verdepuntos",
+        "nombre": "Pez Discos",
         "foto": "../assets/pez6.png",
-        "info": "pez6 info"
+        "info": "Los peces disco, también conocidos como Symphysodon, son apreciados por su elegancia y gracia en el mundo de la acuariofilia. Originarios de las cuencas del Amazonas, estos peces destacan por sus cuerpos redondeados y aletas delicadas, así como por su distintivo patrón de coloración. Su comportamiento social y pacífico los convierte en una adición encantadora a los acuarios comunitarios, donde su interacción con otros peces y su comportamiento de cortejo son fascinantes de observar. Sin embargo, los discos requieren cuidados específicos, como una calidad del agua óptima y una dieta equilibrada, para prosperar. Con el debido cuidado, los discos pueden convertirse en verdaderas joyas vivientes, añadiendo una dosis de belleza y serenidad a cualquier tanque."
     }
 ]
