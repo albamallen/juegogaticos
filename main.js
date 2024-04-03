@@ -1,3 +1,30 @@
+class PantallaStart extends Phaser.Scene {
+    constructor() {
+        super({ key: 'PantallaStart' });
+    }
+    preload() {
+        this.load.image('backgroundPuerta', 'assets/puerta.jpg');
+        this.load.audio('door', 'assets/door.mp3');
+    }
+    create() {
+        this.cameras.main.setBackgroundColor('#fff9dc');
+        this.cameras.main.setBackgroundColor('#000');
+        this.backgroundPuerta = this.add.image(this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, 'backgroundPuerta')
+            .setDisplaySize(this.sys.game.canvas.width, this.sys.game.canvas.height).setDepth(500);
+
+        this.start = this.add.text(1020, 1200, 'EMPEZAR', { fontFamily: 'Arial', fontSize: '60px', fill: '#000' });
+        this.start.setDepth(550);
+        this.start.setInteractive().on('pointerdown', () => { this.onStartClick(); });
+        this.door = this.sound.add('door');
+
+    }
+    onStartClick(juego, boton) {
+        this.door.play();
+        this.scene.start('PantallaInicio');
+    }
+}
+
+
 class PantallaInicio extends Phaser.Scene {
     constructor() {
         super({ key: 'PantallaInicio' });
@@ -6,7 +33,7 @@ class PantallaInicio extends Phaser.Scene {
     preload() {
         // Cargar imágenes
         this.load.image('backgroundHabitacion', 'assets/habitacion.jpg');
-        this.load.image('popup', 'assets/overlay.png');
+        this.load.image('overlay', 'assets/overlay.png');
         this.load.image('pecera', 'assets/pecerablanco.png');
         this.load.image('ventana', 'assets/ventanablanco.png');
         this.load.image('nevera', 'assets/neverablanco.png');
@@ -14,7 +41,22 @@ class PantallaInicio extends Phaser.Scene {
         this.load.image('gato2', 'assets/gato2.png');
         this.load.image('gato3', 'assets/gato3.png');
         this.load.image('vidascorazon', 'assets/corazon.PNG');
+        this.load.image('imagenFinalBien', 'assets/gordofeliz.png');
+        this.load.image('imagenFinalMal', 'assets/copitriste.png');  
+        this.load.image('boton', 'assets/boton.png');
+
+        this.load.audio('soundgordo', 'assets/soundgordo.mp3');
+        this.load.audio('soundcopi', 'assets/soundcopi.mp3');
+        this.load.audio('soundchispo', 'assets/soundchispo.mp3');
+        this.load.audio('happycat', 'assets/happycat.mp3');
+        this.load.audio('angrycat', 'assets/angrycat.mp3');
+        this.load.audio('bird', 'assets/bird.mp3');
+        this.load.audio('bubble', 'assets/bubble.mp3');
+        this.load.audio('can', 'assets/can.mp3');
+
     }
+
+
 
     create() {
         if (this.game.config.vidas == null)
@@ -24,14 +66,34 @@ class PantallaInicio extends Phaser.Scene {
         this.backgroundHabitacion = this.add.image(this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, 'backgroundHabitacion')
             .setDisplaySize(this.sys.game.canvas.width, this.sys.game.canvas.height).setDepth(500);
 
-        this.instrucciones = this.add.text(1300, 300, 'adivina donde se puede jugar', { fontSize: '20px', fill: '#000' });
+        this.instrucciones = this.add.text(1300, 250, 'Selecciona un minijuego\n(ventana, pecera o nevera)', { fontFamily: 'Arial', fontSize: '50px', fill: '#000', wordWrap: { width: 700, useAdvancedWrap: true } });
         this.instrucciones.setDepth(501);
+        this.instrucciones.setWordWrapWidth(700);
+
+        this.reiniciar = this.add.text(1020, 920, 'Reinicia el juego', { fontFamily: 'Arial', fontSize: '50px', fill: '#000', wordWrap: { width: 400, useAdvancedWrap: true } });
+        this.reiniciar.setDepth(0);
+        this.reiniciar.setWordWrapWidth(400);
+        this.boton = this.add.image(1200, 950, 'boton').setDepth(0);
+        this.gatoFinalBien = this.add.image(730, 947, 'imagenFinalBien').setDepth(0);
+        this.gatoFinalMal = this.add.image(730, 947, 'imagenFinalMal').setDepth(0);
+
+        this.soundgordo = this.sound.add('soundgordo');
+        this.soundcopi = this.sound.add('soundcopi');
+        this.soundchispo = this.sound.add('soundchispo');
+        this.happycat = this.sound.add('happycat');
+        this.angrycat = this.sound.add('angrycat');
+        this.bird = this.sound.add('bird');
+        this.bubble = this.sound.add('bubble');
+        this.can = this.sound.add('can');
+
+        this.overlay = this.add.image(this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, 'overlay').setDepth(0).setScale(0.5);
 
         this.pecera = this.add.image(730, 947, 'pecera');
         this.pecera.setInteractive().on('pointerdown', () => { this.onJuegoClick(1, this.pecera); });
         if (this.game.config.peceraRealizado) {
             this.pecera.setDepth(0);
             this.pecera.disableInteractive();
+            this.bubble.play();
         }
         else {
             this.pecera.setDepth(750);
@@ -42,6 +104,7 @@ class PantallaInicio extends Phaser.Scene {
         if (this.game.config.ventanaRealizado) {
             this.ventana.setDepth(0);
             this.ventana.disableInteractive();
+            this.bird.play();
         }
         else {
             this.ventana.setDepth(750)
@@ -52,6 +115,7 @@ class PantallaInicio extends Phaser.Scene {
         if (this.game.config.comidaRealizado) {
             this.nevera.setDepth(0);
             this.nevera.disableInteractive();
+            this.can.play();
         }
         else {
             this.nevera.setDepth(750);
@@ -64,34 +128,107 @@ class PantallaInicio extends Phaser.Scene {
         this.gato2.setInteractive().on('pointerdown', () => { this.onGatoClick(2, this.gato2); });
         this.gato3.setInteractive().on('pointerdown', () => { this.onGatoClick(3, this.gato3); });
 
-        this.vidascorazon = this.add.image(1800, 100, 'vidascorazon').setDepth(501).setScale(0.3);
-        this.vidastext = this.add.text(1735, 75, `${this.game.config.vidas}`, { fontSize: '50px', fill: '#000' });
+        this.vidascorazon = this.add.image(1800, 160, 'vidascorazon').setDepth(501).setScale(0.3);
+        this.vidastext = this.add.text(1735, 130, `${this.game.config.vidas}`, { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.vidastext.setDepth(501);
 
+        this.reiniciar.setInteractive().on('pointerdown', () => { this.onReiniciarClick(); });
+        this.reiniciar.disableInteractive();
+
         if (this.game.config.vidas == 0) {
-            this.instrucciones.text = 'te has quedado sin vidas';
-            this.instrucciones.setDepth(501);
+            this.ventanaFinal(false);
+            this.instrucciones = this.add.text(600, 300, 'Has perdido.\nTe has quedado sin vidas', { fontFamily: 'Arial', fontSize: '50px', fill: '#000', wordWrap: { width: 600, useAdvancedWrap: true } });
+            this.instrucciones.setDepth(950);
+            this.instrucciones.setWordWrapWidth(600);
+        }
+        if (this.game.config.peceraRealizado && this.game.config.ventanaRealizado && this.game.config.comidaRealizado) {
+            //TODO mostrar ventana has ganado
+            this.ventanaFinal(true);
+            this.instrucciones = this.add.text(600, 300, 'Has ganado!', { fontFamily: 'Arial', fontSize: '50px', fill: '#000', wordWrap: { width: 400, useAdvancedWrap: true } });
+            this.instrucciones.setDepth(950);
+            this.instrucciones.setWordWrapWidth(400);
         }
     }
 
+    ventanaFinal(estado) {
+        this.ventana.disableInteractive();
+        this.pecera.disableInteractive();
+        this.nevera.disableInteractive();
+        this.gato1.disableInteractive();
+        this.gato2.disableInteractive();
+        this.gato3.disableInteractive();
+        this.reiniciar.setInteractive().setDepth(999);
+        this.boton.setDepth(950).setScale(0.5);
+        this.overlay.setDepth(900);
+        if(estado){
+            this.gatoFinalBien.setDepth(999).setScale(2);
+            this.instrucciones.setDepth(0);
+            this.happycat.play();
+        }else{
+            this.gatoFinalMal.setDepth(999).setScale(2);
+            this.instrucciones.setDepth(0);
+            this.angrycat.play();
+        }
+       
+    }
+
+    onReiniciarClick(){
+        window.location.reload();
+    }
 
     update() {
 
     }
 
     onJuegoClick(juego, boton) {
+        
         if (juego == this.game.config.juegoSeleccionado) {
+            switch (juego) {
+                case 1:
+                    this.bubble.play();
+                    break;
+                case 2:
+                    this.bird.play();
+                    break;
+                case 3:
+                    this.can.play();
+                    break;
+            }
             this.game.config.juegoSeleccionado = 0;
             boton.setDepth(999);
-            this.instrucciones.text = 'adivina donde se puede jugar';
+            this.instrucciones.text = 'Selecciona un minijuego\n(ventana, pecera o nevera)';
         } else if (!this.game.config.juegoSeleccionado) {
+            switch (juego) {
+                case 1:
+                    this.bubble.play();
+                    break;
+                case 2:
+                    this.bird.play();
+                    break;
+                case 3:
+                    this.can.play();
+                    break;
+            }
             this.game.config.juegoSeleccionado = juego;
             boton.setDepth(0);
             this.instrucciones.text = 'Seleciona un gato';
+            
         }
+        
     }
 
     onGatoClick(gato, boton) {
+        switch (gato) {
+            case 1:
+                this.soundgordo.play();
+                break;
+            case 2:
+                this.soundcopi.play();
+                break;
+            case 3:
+                this.soundchispo.play();
+                break;
+        }
         if (!this.game.config.juegoSeleccionado) return;
         if (this.game.config.juegoSeleccionado != gato) {
             this.instrucciones.text = 'El gato no quiere jugar';
@@ -129,11 +266,13 @@ class PantallaVentana extends Phaser.Scene {
         this.load.image('backgroundVentana', 'assets/ventana.jpeg');
         this.load.image('pajaro1', 'assets/cardenal1.png');
         this.load.image('pajaro2', 'assets/picogordotigrillo2.png');
-        this.load.image('pajaro3', 'assets/azulejodelasmontañas3.png');
+        this.load.image('pajaro3', 'assets/azulejodelasmontanas3.png');
         this.load.image('pajaro4', 'assets/gorrion4.png');
         this.load.image('pajaro5', 'assets/picogrueso5.png');
         this.load.image('pajaro6', 'assets/martingigante6.png');
+        this.load.image('pajaro', 'assets/pajaro.png');
 
+        this.load.audio('bird', 'assets/bird.mp3');
         this.load.image('overlay', 'assets/overlay.png');
 
         this.load.json('infoPajaros', 'data/data.json');
@@ -151,42 +290,43 @@ class PantallaVentana extends Phaser.Scene {
         this.backgroundVentana = this.add.image(this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, 'backgroundVentana')
             .setDisplaySize(this.sys.game.canvas.width, this.sys.game.canvas.height).setDepth(500);
 
-        this.instrucciones = this.add.text(1300, 300, 'selecciona un pajaro', { fontSize: '20px', fill: '#000' });
+        this.instrucciones = this.add.text(230, 200, 'Selecciona un pajaro', { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.instrucciones.setDepth(501);
 
-        this.preguntapajaro = this.add.text(540, 300, 'adivina el nombre del pájaro', { fontSize: '50px', fill: '#000' });
+        this.preguntapajaro = this.add.text(500, 300, 'Adivina el nombre del pájaro', { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.preguntapajaro.setDepth(0);
 
-        this.infopajaro = this.add.text(540, 400, 'info', { fontSize: '50px', fill: '#000' });
+        this.infopajaro = this.add.text(940, 400, 'info', { fontFamily: 'Arial', fontSize: '25px', fill: '#000', wordWrap: { width: 500, useAdvancedWrap: true } });
         this.infopajaro.setDepth(0);
+        this.infopajaro.setWordWrapWidth(600);
 
-        this.respuestaPajaro1 = this.add.text(1100, 500, '', { fontSize: '40px', fill: '#000' });
+        this.respuestaPajaro1 = this.add.text(1000, 500, '', { fontFamily: 'Arial', fontSize: '40px', fill: '#000' });
         this.respuestaPajaro1.setDepth(0);
-        this.respuestaPajaro2 = this.add.text(1100, 700, '', { fontSize: '40px', fill: '#000' });
+        this.respuestaPajaro2 = this.add.text(1000, 700, '', { fontFamily: 'Arial', fontSize: '40px', fill: '#000' });
         this.respuestaPajaro2.setDepth(0);
-        this.respuestaPajaro3 = this.add.text(1100, 900, '', { fontSize: '40px', fill: '#000' });
+        this.respuestaPajaro3 = this.add.text(1000, 900, '', { fontFamily: 'Arial', fontSize: '40px', fill: '#000' });
         this.respuestaPajaro3.setDepth(0);
 
-        this.vidascorazon = this.add.image(1800, 100, 'vidascorazon').setDepth(501).setScale(0.3);
-        this.vidastextPajaros = this.add.text(1735, 75, `${this.game.config.vidas}`, { fontSize: '50px', fill: '#000' });
+        this.vidascorazon = this.add.image(1800, 160, 'vidascorazon').setDepth(501).setScale(0.3);
+        this.vidastextPajaros = this.add.text(1735, 130, `${this.game.config.vidas}`, { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.vidastextPajaros.setDepth(501);
-        this.numeroPajaros = this.add.image(1600, 100, 'vidascorazon').setDepth(501).setScale(0.3);
-        this.numeroPajarosText = this.add.text(1535, 75, `${this.aciertos}/3`, { fontSize: '50px', fill: '#000' });
+        this.numeroPajaros = this.add.image(1650, 205, 'pajaro').setDepth(501).setScale(0.3);
+        this.numeroPajarosText = this.add.text(1520, 180, `${this.aciertos}/3`, { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.numeroPajarosText.setDepth(501);
 
-        this.pajaro1 = this.add.image(1400, 500, 'pajaro1').setDepth(502);
-        this.pajaro2 = this.add.image(400, 600, 'pajaro2').setDepth(502);
-        this.pajaro3 = this.add.image(500, 700, 'pajaro3').setDepth(502);
-        this.pajaro4 = this.add.image(600, 800, 'pajaro4').setDepth(502);
-        this.pajaro5 = this.add.image(700, 900, 'pajaro5').setDepth(502);
+        this.pajaro1 = this.add.image(1300, 500, 'pajaro1').setDepth(502);
+        this.pajaro2 = this.add.image(300, 500, 'pajaro2').setDepth(502);
+        this.pajaro3 = this.add.image(400, 690, 'pajaro3').setDepth(502);
+        this.pajaro4 = this.add.image(300, 860, 'pajaro4').setDepth(502);
+        this.pajaro5 = this.add.image(800, 820, 'pajaro5').setDepth(502);
         this.pajaro6 = this.add.image(1400, 1000, 'pajaro6').setDepth(502);
 
         this.overlay = this.add.image(this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, 'overlay').setDepth(0).setScale(0.5);
-        this.OKText = this.add.text(1100, 1100, 'OK', { fontSize: '100px', fill: '#000' });
+        this.OKText = this.add.text(1100, 1000, 'Siguiente', { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.OKText.setDepth(0);
         this.OKText.setInteractive().on('pointerdown', () => { this.onOKClick(); });
         this.OKText.disableInteractive();
-        this.OKFinalText = this.add.text(1100, 1100, 'OK', { fontSize: '100px', fill: '#000' });
+        this.OKFinalText = this.add.text(1100, 1000, 'Siguiente', { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.OKFinalText.setDepth(0);
         this.OKFinalText.setInteractive().on('pointerdown', () => { this.onOKFinalClick(); });
         this.OKFinalText.disableInteractive();
@@ -202,6 +342,7 @@ class PantallaVentana extends Phaser.Scene {
         this.respuestaPajaro2.setInteractive().on('pointerdown', () => { this.onRespuestaClick(2, this.respuestaCorrecta); });
         this.respuestaPajaro3.setInteractive().on('pointerdown', () => { this.onRespuestaClick(3, this.respuestaCorrecta); });
 
+        this.bird = this.sound.add('bird');
     }
 
 
@@ -220,8 +361,9 @@ class PantallaVentana extends Phaser.Scene {
 
         this.pajaroSeleccionado = pajaro - 1;
 
+        this.bird.play();
         this.overlay.setDepth(800)
-        this.instrucciones.text = `Seleciona un pajaro`; // ${pajaro}`;
+        this.preguntapajaro.text = `Adivina el nombre del pájaro`; // ${pajaro}`;
         switch (pajaro) {
             case 1:
                 this.pajaroOverlay = this.add.image(650, 700, `pajaro1`).setDepth(850);
@@ -313,7 +455,7 @@ class PantallaVentana extends Phaser.Scene {
             let infoPajaros = this.cache.json.get('infoPajaros');
             this.aciertos++;
             this.pajaroRealizado[this.pajaroSeleccionado] = true;
-            this.preguntapajaro.text = infoPajaros[this.pajaroSeleccionado].nombre;
+            this.preguntapajaro.text = `${infoPajaros[this.pajaroSeleccionado].nombre}. Respuesta correcta`;
             this.infopajaro.text = infoPajaros[this.pajaroSeleccionado].info;
             this.infopajaro.setDepth(999);
             this.numeroPajarosText.text = `${this.aciertos}/3`;
@@ -349,6 +491,9 @@ class PantallaVentana extends Phaser.Scene {
             this.overlay.setDepth(900);
             this.preguntapajaro.setDepth(999);
             this.preguntapajaro.text = `Juego finalizado`;
+            this.numeroPajaros = this.add.image(1000, 650, 'pajaro').setDepth(999);
+            this.numeroPajarosText = this.add.text(940, 775, `${this.aciertos}/3`, { fontFamily: 'Arial', fontSize: '80px', fill: '#000' });
+            this.numeroPajarosText.setDepth(999);
             this.OKFinalText.setInteractive();
             this.OKFinalText.setDepth(999);
         }
@@ -372,10 +517,13 @@ class PantallaPecera extends Phaser.Scene {
         this.load.image('pez4', 'assets/pez4.png');
         this.load.image('pez5', 'assets/pez5.png');
         this.load.image('pez6', 'assets/pez6.png');
+        this.load.image('pez', 'assets/pez.png');
+        this.load.image('boton', 'assets/boton.png');
 
         this.load.image('overlay', 'assets/overlay.png');
 
         this.load.json('infoPeces', 'data/peces.json');
+        this.load.audio('bubble', 'assets/bubble.mp3');
     }
 
 
@@ -390,42 +538,48 @@ class PantallaPecera extends Phaser.Scene {
         this.backgroundPecera = this.add.image(this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, 'backgroundPecera')
             .setDisplaySize(this.sys.game.canvas.width, this.sys.game.canvas.height).setDepth(500);
 
-        this.instrucciones = this.add.text(1300, 300, 'selecciona un pez', { fontSize: '20px', fill: '#000' });
+        this.instrucciones = this.add.text(1000, 300, 'Selecciona un pez', { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.instrucciones.setDepth(501);
 
-        this.preguntapez = this.add.text(540, 300, 'adivina el nombre del pájaro', { fontSize: '50px', fill: '#000' });
+        this.preguntapez = this.add.text(400, 300, 'Adivina el nombre del pez', { fontSize: '50px', fill: '#000' });
         this.preguntapez.setDepth(0);
 
-        this.infopez = this.add.text(540, 400, 'info', { fontSize: '50px', fill: '#000' });
+        this.infopez = this.add.text(940, 400, 'info', { fontFamily: 'Arial', fontSize: '25px', fill: '#000', wordWrap: { width: 500, useAdvancedWrap: true } });
         this.infopez.setDepth(0);
+        this.infopez.setWordWrapWidth(600);
 
-        this.respuestaPez1 = this.add.text(1100, 500, '', { fontSize: '40px', fill: '#000' });
+        this.respuestaPez1 = this.add.text(1100, 500, '', { fontFamily: 'Arial', fontSize: '40px', fill: '#000' });
         this.respuestaPez1.setDepth(0);
-        this.respuestaPez2 = this.add.text(1100, 700, '', { fontSize: '40px', fill: '#000' });
+        this.respuestaPez2 = this.add.text(1100, 700, '', { fontFamily: 'Arial', fontSize: '40px', fill: '#000' });
         this.respuestaPez2.setDepth(0);
-        this.respuestaPez3 = this.add.text(1100, 900, '', { fontSize: '40px', fill: '#000' });
+        this.respuestaPez3 = this.add.text(1100, 900, '', { fontFamily: 'Arial', fontSize: '40px', fill: '#000' });
         this.respuestaPez3.setDepth(0);
 
-        this.vidascorazon = this.add.image(1800, 100, 'vidascorazon').setDepth(501).setScale(0.3);
-        this.vidastextPeces = this.add.text(1735, 75, `${this.game.config.vidas}`, { fontSize: '50px', fill: '#000' });
+        // this.respuestaPez1width = this.respuestaPez1.width;
+        // this.respuestaPez1height = this.respuestaPez1.height;
+        
+        // this.boton1 = this.add.image(1100,500, 'boton').setDepth(0);
+
+        this.vidascorazon = this.add.image(1740, 210, 'vidascorazon').setDepth(501).setScale(0.3);
+        this.vidastextPeces = this.add.text(1660, 185, `${this.game.config.vidas}`, { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.vidastextPeces.setDepth(501);
-        this.numeroPeces = this.add.image(1600, 100, 'vidascorazon').setDepth(501).setScale(0.3);
-        this.numeroPecesText = this.add.text(1535, 75, `${this.aciertos}/3`, { fontSize: '50px', fill: '#000' });
+        this.numeroPeces = this.add.image(1590, 210, 'pez').setDepth(501).setScale(0.3);
+        this.numeroPecesText = this.add.text(1460, 185, `${this.aciertos}/3`, { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.numeroPecesText.setDepth(501);
 
-        this.pez1 = this.add.image(1400, 500, 'pez1').setDepth(502);
-        this.pez2 = this.add.image(400, 600, 'pez2').setDepth(502);
-        this.pez3 = this.add.image(500, 700, 'pez3').setDepth(502);
-        this.pez4 = this.add.image(600, 800, 'pez4').setDepth(502);
-        this.pez5 = this.add.image(700, 900, 'pez5').setDepth(502);
-        this.pez6 = this.add.image(1400, 1000, 'pez6').setDepth(502);
+        this.pez1 = this.add.image(1200, 650, 'pez1').setDepth(502);
+        this.pez2 = this.add.image(300, 600, 'pez2').setDepth(502);
+        this.pez3 = this.add.image(700, 700, 'pez3').setDepth(502);
+        this.pez4 = this.add.image(600, 1000, 'pez4').setDepth(502);
+        this.pez5 = this.add.image(1000, 900, 'pez5').setDepth(502);
+        this.pez6 = this.add.image(1600, 1000, 'pez6').setDepth(502);
 
         this.overlay = this.add.image(this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, 'overlay').setDepth(0).setScale(0.5);
-        this.OKText = this.add.text(1100, 1100, 'OK', { fontSize: '100px', fill: '#000' });
+        this.OKText = this.add.text(1100, 1000, 'Siguiente', { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.OKText.setDepth(0);
         this.OKText.setInteractive().on('pointerdown', () => { this.onOKClick(); });
         this.OKText.disableInteractive();
-        this.OKFinalText = this.add.text(1100, 1100, 'OK', { fontSize: '100px', fill: '#000' });
+        this.OKFinalText = this.add.text(1100, 1000, 'Siguiente', { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.OKFinalText.setDepth(0);
         this.OKFinalText.setInteractive().on('pointerdown', () => { this.onOKFinalClick(); });
         this.OKFinalText.disableInteractive();
@@ -441,6 +595,7 @@ class PantallaPecera extends Phaser.Scene {
         this.respuestaPez2.setInteractive().on('pointerdown', () => { this.onRespuestaClick(2, this.respuestaCorrecta); });
         this.respuestaPez3.setInteractive().on('pointerdown', () => { this.onRespuestaClick(3, this.respuestaCorrecta); });
 
+        this.bubble = this.sound.add('bubble');
     }
 
 
@@ -460,7 +615,8 @@ class PantallaPecera extends Phaser.Scene {
         this.pezSeleccionado = pez - 1;
 
         this.overlay.setDepth(800)
-        this.instrucciones.text = `Seleciona un pez`; // ${pez}`;
+        this.bubble.play();
+        this.preguntapez.text = `Adivina el nombre del pez`; // ${pez}`;
         switch (pez) {
             case 1:
                 this.pezOverlay = this.add.image(650, 700, `pez1`).setDepth(850);
@@ -534,7 +690,8 @@ class PantallaPecera extends Phaser.Scene {
         this.respuestaPez1.setDepth(900);
         this.respuestaPez2.setDepth(900);
         this.respuestaPez3.setDepth(900);
-
+        // this.boton1.setScale(this.respuestaPez1width / this.boton1.width, this.respuestaPez1height / this.boton1.height);
+        // this.boton1.setDepth(910);
     }
 
     onRespuestaClick(respuesta, correcta) {
@@ -552,7 +709,7 @@ class PantallaPecera extends Phaser.Scene {
             let infoPeces = this.cache.json.get('infoPeces');
             this.aciertos++;
             this.pezRealizado[this.pezSeleccionado] = true;
-            this.preguntapez.text = infoPeces[this.pezSeleccionado].nombre;
+            this.preguntapez.text = `${infoPeces[this.pezSeleccionado].nombre}. Respuesta correcta`;
             this.infopez.text = infoPeces[this.pezSeleccionado].info;
             this.infopez.setDepth(999);
             this.numeroPecesText.text = `${this.aciertos}/3`;
@@ -588,6 +745,9 @@ class PantallaPecera extends Phaser.Scene {
             this.overlay.setDepth(900);
             this.preguntapez.setDepth(999);
             this.preguntapez.text = `Juego finalizado`;
+            this.numeroPeces = this.add.image(1000, 700, 'pez').setDepth(999);
+            this.numeroPecesText = this.add.text(940, 775, `${this.aciertos}/3`, { fontFamily: 'Arial', fontSize: '80px', fill: '#000' });
+            this.numeroPecesText.setDepth(999);
             this.OKFinalText.setInteractive();
             this.OKFinalText.setDepth(999);
         }
@@ -617,19 +777,23 @@ class PantallaNevera extends Phaser.Scene {
         //     this.load.image(`comida${i}`, `${infoComidas[i].foto}`);    
         // }
 
-        this.load.image('backgroundNevera', 'assets/ventana.jpeg');
-        this.load.image('comida1', 'assets/cardenal1.png');
-        this.load.image('comida2', 'assets/picogordotigrillo2.png');
-        this.load.image('comida3', 'assets/azulejodelasmontañas3.png');
-        this.load.image('comida4', 'assets/gorrion4.png');
-        this.load.image('comida5', 'assets/picogrueso5.png');
-        this.load.image('comida6', 'assets/martingigante6.png');
-        this.load.image('comida7', 'assets/pez1.png');
-        this.load.image('comida8', 'assets/pez2.png');
-        this.load.image('comida9', 'assets/pez3.png');
-        this.load.image('comida10', 'assets/pez4.png');
-        this.load.image('comida11', 'assets/pez5.png');
-        this.load.image('comida12', 'assets/pez6.png');
+        this.load.image('backgroundNevera', 'assets/nevera.JPG');
+        this.load.image('comida1', 'assets/guisantes.png');
+        this.load.image('comida2', 'assets/zanahoria.png');
+        this.load.image('comida3', 'assets/huevococido.png');
+        this.load.image('comida4', 'assets/brocoli.png');
+        this.load.image('comida5', 'assets/sandia.png');
+        this.load.image('comida6', 'assets/melocoton.png');
+        this.load.image('comida7', 'assets/chorizo.png');
+        this.load.image('comida8', 'assets/cebolla.png');
+        this.load.image('comida9', 'assets/chocolate.png');
+        this.load.image('comida10', 'assets/uva.png');
+        this.load.image('comida11', 'assets/aguacate.png');
+        this.load.image('comida12', 'assets/naranja.png');
+        this.load.image('comida13', 'assets/limon.png');
+        this.load.image('cubiertos', 'assets/cubiertos.png');
+
+        this.load.audio('can', 'assets/can.mp3');
 
         this.load.image('overlay', 'assets/overlay.png');
 
@@ -647,46 +811,50 @@ class PantallaNevera extends Phaser.Scene {
         this.backgroundNevera = this.add.image(this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, 'backgroundNevera')
             .setDisplaySize(this.sys.game.canvas.width, this.sys.game.canvas.height).setDepth(500);
 
-        this.instrucciones = this.add.text(1300, 300, 'selecciona un comida', { fontSize: '20px', fill: '#000' });
+        this.instrucciones = this.add.text(100, 300, 'Selecciona una comida', { fontFamily: 'Arial', fontSize: '50px', fill: '#000', wordWrap: { width: 300, useAdvancedWrap: true } });
         this.instrucciones.setDepth(501);
+        this.instrucciones.setWordWrapWidth(300);
 
-        this.preguntacomida = this.add.text(540, 300, 'adivina el nombre del pájaro', { fontSize: '50px', fill: '#000' });
+        this.preguntacomida = this.add.text(440, 300, '', { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.preguntacomida.setDepth(0);
 
-        this.infocomida = this.add.text(540, 400, 'info', { fontSize: '50px', fill: '#000' });
+        this.infocomida = this.add.text(840, 400, 'info', { fontFamily: 'Arial', fontSize: '25px', fill: '#000', wordWrap: { width: 500, useAdvancedWrap: true } });
         this.infocomida.setDepth(0);
+        this.infocomida.setWordWrapWidth(600);
 
-        this.respuestaComida1 = this.add.text(1100, 500, 'Sí', { fontSize: '40px', fill: '#000' });
+        this.respuestaComida1 = this.add.text(1100, 500, 'Sí', { fontFamily: 'Arial', fontSize: '40px', fill: '#000' });
         this.respuestaComida1.setDepth(0);
-        this.respuestaComida2 = this.add.text(1100, 700, 'No', { fontSize: '40px', fill: '#000' });
+        this.respuestaComida2 = this.add.text(1100, 700, 'No', { fontFamily: 'Arial', fontSize: '40px', fill: '#000' });
         this.respuestaComida2.setDepth(0);
 
         this.vidascorazon = this.add.image(1800, 100, 'vidascorazon').setDepth(501).setScale(0.3);
         this.vidastextcomida = this.add.text(1735, 75, `${this.game.config.vidas}`, { fontSize: '50px', fill: '#000' });
         this.vidastextcomida.setDepth(501);
-        this.numerocomida = this.add.image(1600, 100, 'vidascorazon').setDepth(501).setScale(0.3);
-        this.numerocomidaText = this.add.text(1535, 75, `${this.aciertos}/6`, { fontSize: '50px', fill: '#000' });
+        this.numerocomida = this.add.image(1660, 100, 'cubiertos').setDepth(501).setScale(0.3);
+        this.numerocomidaText = this.add.text(1535, 75, `${this.aciertos}/6`, { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.numerocomidaText.setDepth(501);
 
-        this.comida1 = this.add.image(1200, 500, 'comida1').setDepth(502);
-        this.comida2 = this.add.image(400, 600, 'comida2').setDepth(502);
-        this.comida3 = this.add.image(500, 700, 'comida3').setDepth(502);
-        this.comida4 = this.add.image(600, 800, 'comida4').setDepth(502);
-        this.comida5 = this.add.image(400, 900, 'comida5').setDepth(502);
-        this.comida6 = this.add.image(1400, 1000, 'comida6').setDepth(502);
-        this.comida7 = this.add.image(1500, 500, 'comida7').setDepth(502);
-        this.comida8 = this.add.image(1200, 600, 'comida8').setDepth(502);
+        this.comida1 = this.add.image(1250, 360, 'comida1').setDepth(502);
+        this.comida2 = this.add.image(700, 840, 'comida2').setDepth(502);
+        this.comida3 = this.add.image(1320, 700, 'comida3').setDepth(502);
+        this.comida4 = this.add.image(560, 510, 'comida4').setDepth(502);
+        this.comida5 = this.add.image(640, 1100, 'comida5').setDepth(502);
+        this.comida6 = this.add.image(950, 1100, 'comida6').setDepth(502);
+        this.comida7 = this.add.image(850, 540, 'comida7').setDepth(502);
+        this.comida8 = this.add.image(1670, 370, 'comida8').setDepth(502);
         this.comida9 = this.add.image(1600, 700, 'comida9').setDepth(502);
-        this.comida10 = this.add.image(1700, 800, 'comida10').setDepth(502);
-        this.comida11 = this.add.image(800, 900, 'comida11').setDepth(502);
-        this.comida12 = this.add.image(1200, 1000, 'comida12').setDepth(502);
+        this.comida10 = this.add.image(1500, 1120, 'comida10').setDepth(502);
+        this.comida11 = this.add.image(1450, 340, 'comida11').setDepth(502);
+        this.comida12 = this.add.image(860, 250, 'comida12').setDepth(502);
+        this.comida13 = this.add.image(620, 270, 'comida13').setDepth(502);
+
 
         this.overlay = this.add.image(this.sys.game.canvas.width / 2, this.sys.game.canvas.height / 2, 'overlay').setDepth(0).setScale(0.5);
-        this.OKText = this.add.text(1100, 1100, 'OK', { fontSize: '100px', fill: '#000' });
+        this.OKText = this.add.text(1100, 1000, 'Siguiente', { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.OKText.setDepth(0);
         this.OKText.setInteractive().on('pointerdown', () => { this.onOKClick(); });
         this.OKText.disableInteractive();
-        this.OKFinalText = this.add.text(1100, 1100, 'OK', { fontSize: '100px', fill: '#000' });
+        this.OKFinalText = this.add.text(1100, 1000, 'Siguiente', { fontFamily: 'Arial', fontSize: '50px', fill: '#000' });
         this.OKFinalText.setDepth(0);
         this.OKFinalText.setInteractive().on('pointerdown', () => { this.onOKFinalClick(); });
         this.OKFinalText.disableInteractive();
@@ -703,10 +871,13 @@ class PantallaNevera extends Phaser.Scene {
         this.comida10.setInteractive().on('pointerdown', () => { this.onComidaClick(10, this.comida10); });
         this.comida11.setInteractive().on('pointerdown', () => { this.onComidaClick(11, this.comida11); });
         this.comida12.setInteractive().on('pointerdown', () => { this.onComidaClick(12, this.comida12); });
+        this.comida13.setInteractive().on('pointerdown', () => { this.onComidaClick(13, this.comida13); });
+
 
         this.respuestaComida1.setInteractive().on('pointerdown', () => { this.onRespuestaClick(true, this.respuestaCorrecta); });
         this.respuestaComida2.setInteractive().on('pointerdown', () => { this.onRespuestaClick(false, this.respuestaCorrecta); });
 
+        this.can = this.sound.add('can');
     }
 
 
@@ -728,6 +899,9 @@ class PantallaNevera extends Phaser.Scene {
         this.comida10.disableInteractive();
         this.comida11.disableInteractive();
         this.comida12.disableInteractive();
+        this.comida13.disableInteractive();
+
+        this.can.play();
 
         this.comidaSeleccionado = comida - 1;
 
@@ -735,43 +909,46 @@ class PantallaNevera extends Phaser.Scene {
         const l = infoComida.length;
 
         this.overlay.setDepth(800)
-        this.preguntacomida.text = `${infoComida[this.comidaSeleccionado].nombre}`;
+        this.preguntacomida.text = `Pueden comer ${infoComida[this.comidaSeleccionado].nombre} los gatos?`;
         switch (comida) {
             case 1:
-                this.comidaOverlay = this.add.image(650, 700, `comida1`).setDepth(850);
+                this.comidaOverlay = this.add.image(600, 700, `comida1`).setDepth(850);
                 break;
             case 2:
-                this.comidaOverlay = this.add.image(650, 700, `comida2`).setDepth(850);
+                this.comidaOverlay = this.add.image(600, 700, `comida2`).setDepth(850);
                 break;
             case 3:
-                this.comidaOverlay = this.add.image(650, 700, `comida3`).setDepth(850);
+                this.comidaOverlay = this.add.image(600, 700, `comida3`).setDepth(850);
                 break;
             case 4:
-                this.comidaOverlay = this.add.image(650, 700, `comida4`).setDepth(850);
+                this.comidaOverlay = this.add.image(600, 700, `comida4`).setDepth(850);
                 break;
             case 5:
-                this.comidaOverlay = this.add.image(650, 700, `comida5`).setDepth(850);
+                this.comidaOverlay = this.add.image(600, 700, `comida5`).setDepth(850);
                 break;
             case 6:
-                this.comidaOverlay = this.add.image(650, 700, `comida6`).setDepth(850);
+                this.comidaOverlay = this.add.image(600, 700, `comida6`).setDepth(850);
                 break;
             case 7:
-                this.comidaOverlay = this.add.image(650, 700, `comida7`).setDepth(850);
+                this.comidaOverlay = this.add.image(600, 700, `comida7`).setDepth(850);
                 break;
             case 8:
-                this.comidaOverlay = this.add.image(650, 700, `comida8`).setDepth(850);
+                this.comidaOverlay = this.add.image(600, 700, `comida8`).setDepth(850);
                 break;
             case 9:
-                this.comidaOverlay = this.add.image(650, 700, `comida9`).setDepth(850);
+                this.comidaOverlay = this.add.image(600, 700, `comida9`).setDepth(850);
                 break;
             case 10:
-                this.comidaOverlay = this.add.image(650, 700, `comida10`).setDepth(850);
+                this.comidaOverlay = this.add.image(600, 700, `comida10`).setDepth(850);
                 break;
             case 11:
-                this.comidaOverlay = this.add.image(650, 700, `comida11`).setDepth(850);
+                this.comidaOverlay = this.add.image(600, 700, `comida11`).setDepth(850);
                 break;
             case 12:
-                this.comidaOverlay = this.add.image(650, 700, `comida12`).setDepth(850);
+                this.comidaOverlay = this.add.image(600, 700, `comida12`).setDepth(850);
+                break;
+            case 13:
+                this.comidaOverlay = this.add.image(600, 700, `comida13`).setDepth(850);
                 break;
 
             default:
@@ -800,11 +977,12 @@ class PantallaNevera extends Phaser.Scene {
 
         this.comidaRealizado[this.comidaSeleccionado] = true;
         let infoComidas = this.cache.json.get('infoComidas');
-        this.infocomida.text = `${infoComidas[this.comidaSeleccionado].info}`;
+        this.infocomida.text = `${infoComidas[this.comidaSeleccionado].informar}`;
         this.infocomida.setDepth(999);
         if (respuesta == correcta) {
             this.aciertos++;
-            this.preguntacomida.text = infoComidas[this.comidaSeleccionado].nombre;
+            this.preguntacomida.text = `${infoComidas[this.comidaSeleccionado].nombre}. Respuesta correcta`;
+            // this.preguntacomida.text = infoComidas[this.comidaSeleccionado].informar;
             this.numerocomidaText.text = `${this.aciertos}/6`;
         } else {
             this.game.config.vidas--;
@@ -834,6 +1012,8 @@ class PantallaNevera extends Phaser.Scene {
         if (!this.comidaRealizado[9]) this.comida10.setInteractive();
         if (!this.comidaRealizado[10]) this.comida11.setInteractive();
         if (!this.comidaRealizado[11]) this.comida12.setInteractive();
+        if (!this.comidaRealizado[12]) this.comida13.setInteractive();
+
 
         this.preguntacomida.text = `Seleciona un comida`; // ${comida}`;
 
@@ -843,6 +1023,9 @@ class PantallaNevera extends Phaser.Scene {
             this.overlay.setDepth(900);
             this.preguntacomida.setDepth(999);
             this.preguntacomida.text = `Juego finalizado`;
+            this.numerocomida = this.add.image(1000, 600, 'cubiertos').setDepth(999);
+            this.numerocomidaText = this.add.text(940, 775, `${this.aciertos}/6`, { fontFamily: 'Arial', fontSize: '80px', fill: '#000' });
+            this.numerocomidaText.setDepth(999);
             this.OKFinalText.setInteractive();
             this.OKFinalText.setDepth(999);
         }
@@ -852,10 +1035,6 @@ class PantallaNevera extends Phaser.Scene {
         this.scene.start('PantallaInicio');
     }
 }
-
-
-
-
 
 
 
@@ -869,7 +1048,7 @@ window.onload = function () {
             width: '1920',
             height: '1392'
         },
-        scene: [PantallaInicio, PantallaVentana, PantallaPecera,PantallaNevera],
+        scene: [PantallaStart, PantallaInicio, PantallaVentana, PantallaPecera, PantallaNevera],
         vidas: 7,
         peceraRealizado: false,
         ventanaRealizado: false,
