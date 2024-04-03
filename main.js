@@ -777,7 +777,7 @@ class PantallaNevera extends Phaser.Scene {
         //     this.load.image(`comida${i}`, `${infoComidas[i].foto}`);    
         // }
 
-        this.load.image('backgroundNevera', 'assets/nevera.JPG');
+        this.load.image('backgroundNevera', 'assets/nevera.jpg');
         this.load.image('comida1', 'assets/guisantes.png');
         this.load.image('comida2', 'assets/zanahoria.png');
         this.load.image('comida3', 'assets/huevococido.png');
