@@ -40,7 +40,7 @@ class PantallaInicio extends Phaser.Scene {
         this.load.image('gato1', 'assets/gato1.png');
         this.load.image('gato2', 'assets/gato2.png');
         this.load.image('gato3', 'assets/gato3.png');
-        this.load.image('vidascorazon', 'assets/corazon.PNG');
+        this.load.image('vidascorazon', 'assets/corazon.png');
         this.load.image('imagenFinalBien', 'assets/gordofeliz.png');
         this.load.image('imagenFinalMal', 'assets/copitriste.png');  
         this.load.image('boton', 'assets/boton.png');
