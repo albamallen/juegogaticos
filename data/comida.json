@@ -2,91 +2,78 @@
     {
         "id": 1,
         "nombre": "Guisantes",
-        "foto": "../assets/cardenal1.png",
         "info": true,
         "informar":"Los guisantes pueden ser una adición nutritiva y segura a la dieta de un gato, ya que son una excelente fuente de proteínas, fibra, vitaminas y minerales. Los guisantes son bajos en calorías y contienen nutrientes esenciales como la vitamina A, la vitamina K, el hierro y el potasio, que pueden beneficiar la salud general de un gato. Además, los guisantes pueden ayudar a promover la salud digestiva y mantener un peso saludable en los gatos debido a su contenido de fibra. Sin embargo, es importante ofrecer guisantes cocidos y en pequeñas cantidades, ya que los gatos pueden tener dificultades para digerirlos si se ofrecen en grandes cantidades o crudos. En general, los guisantes pueden ser una opción segura y saludable como parte de una dieta equilibrada para los gatos."
     },
     {
         "id": 2,
         "nombre": "Zanahoria",
-        "foto": "../assets/picogordotigrillo2.png",
         "info": true,
         "informar":"Los gatos pueden consumir zanahorias en pequeñas cantidades y ocasionalmente, ya que son una fuente de fibra y nutrientes beneficiosos para su salud. Las zanahorias son bajas en calorías y contienen vitamina A, vitamina K, potasio y antioxidantes, que pueden promover una piel saludable, una vista mejorada y un sistema inmunológico fuerte en los gatos. Además, masticar zanahorias crudas puede ayudar a limpiar los dientes y las encías de los gatos, promoviendo así una buena salud bucal. Sin embargo, es importante ofrecer zanahorias en trozos pequeños y crudos, ya que los gatos pueden tener dificultades para digerirlas si se ofrecen en grandes cantidades o cocidas. En general, las zanahorias pueden ser una adición segura y saludable a la dieta de un gato, siempre y cuando se ofrezcan con moderación y como parte de una dieta equilibrada."
     },
     {
         "id": 3,
         "nombre": "Huevo cocido",
-        "foto": "../assets/azulejodelasmontañas3.png",
         "info": true,
         "informar":"Los gatos pueden consumir huevo cocido como parte de su dieta, ya que es una excelente fuente de proteínas y otros nutrientes esenciales. El huevo cocido es fácil de digerir para los gatos y puede proporcionarles beneficios nutricionales, como aminoácidos, vitaminas y minerales. Sin embargo, es importante ofrecer el huevo cocido sin ningún condimento ni aceite, ya que estos pueden ser perjudiciales para la salud del gato. Además, se debe asegurar que el huevo esté completamente cocido para evitar el riesgo de salmonela u otras enfermedades transmitidas por alimentos crudos. En general, el huevo cocido puede ser una adición segura y saludable a la dieta de un gato, siempre y cuando se ofrezca con moderación y como parte de una dieta equilibrada."
     },
     {
         "id": 4,
         "nombre": "Brocoli",
-        "foto": "../assets/gorrion4.png",
         "info": true,
         "informar":"Los gatos pueden comer brócoli en pequeñas cantidades y de manera ocasional, ya que no es tóxico para ellos y puede proporcionar algunos beneficios nutricionales. El brócoli es una verdura rica en fibra, vitaminas y minerales, como la vitamina C, la vitamina K y el calcio, que pueden complementar la dieta de un gato de manera saludable. Sin embargo, se debe tener precaución al introducir el brócoli en la dieta de un gato, ya que algunas mascotas pueden experimentar malestar estomacal o problemas digestivos si se consume en grandes cantidades. Además, es importante ofrecer brócoli cocido y cortado en trozos pequeños para evitar el riesgo de asfixia o bloqueos intestinales. En general, el brócoli puede ser una adición ocasional y nutritiva a la dieta de un gato, pero siempre se debe tener en cuenta la moderación y observar cualquier reacción adversa."
     },
     {
         "id": 5,
         "nombre": "Sandia",
-        "foto": "../assets/picogrueso5.png",
         "info": true,
         "informar":"Los gatos pueden comer sandía en pequeñas cantidades y ocasionalmente, ya que no es tóxica para ellos. La sandía es una fruta que contiene altos niveles de agua y es baja en calorías, lo que la convierte en una opción refrescante y saludable para los gatos, especialmente durante los días calurosos. Sin embargo, se deben tener precauciones, como retirar las semillas y la piel antes de ofrecérsela al gato, ya que estas partes pueden representar un riesgo de asfixia o causar problemas digestivos. Además, es importante introducir nuevos alimentos gradualmente en la dieta del gato y observar cualquier reacción adversa después de su consumo. En general, la sandía puede ser una opción ocasional y segura como premio o bocadillo para los gatos."
     },
     {
         "id": 6,
         "nombre": "Melocotón",
-        "foto": "../assets/martingigante6.png",
         "info": true,
         "informar":"Los gatos pueden comer melocotón en pequeñas cantidades y con moderación, ya que no es tóxico para ellos. Sin embargo, se debe tener precaución, ya que el melocotón contiene huesos que pueden representar un peligro de asfixia o causar obstrucciones intestinales en los gatos si son ingeridos. Además, algunos gatos pueden ser alérgicos a los melocotones o experimentar problemas digestivos como vómitos o diarrea si consumen demasiada cantidad. Por lo tanto, es recomendable ofrecer melocotón como un bocadillo ocasional y siempre retirar las semillas y el hueso antes de dárselo al gato, además de observar cualquier reacción adversa después de su consumo."
     },
     {
         "id": 7,
         "nombre": "Chorizo",
-        "foto": "../assets/pez1.png",
         "info": false,
         "informar":"Los gatos no deben consumir chorizo ni ningún tipo de embutido o alimentos procesados para humanos debido a su alto contenido de grasas, sal y especias, que pueden ser perjudiciales para su salud. El chorizo es particularmente problemático porque suele contener una gran cantidad de grasas saturadas y sal, lo que puede causar problemas gastrointestinales en los gatos, como vómitos, diarrea y malestar estomacal. Además, las especias y condimentos utilizados en la fabricación del chorizo pueden irritar el sistema digestivo de los gatos y provocar inflamación. El consumo regular de alimentos altos en grasas y sal puede contribuir al desarrollo de enfermedades como la obesidad, la diabetes y problemas cardíacos en los gatos, por lo que es importante mantenerlos alejados de los alimentos procesados y ofrecerles una dieta equilibrada y adecuada para su especie."
     },
     {
         "id": 8,
         "nombre": "Cebolla",
-        "foto": "../assets/pez2.png",
         "info": false,
         "informar":"Los gatos no deben consumir cebolla ni ningún producto relacionado con ella, como el ajo o el cebollino, debido a la presencia de compuestos sulfurosos que pueden ser tóxicos para ellos. Estos compuestos pueden dañar los glóbulos rojos de la sangre de los gatos, causando anemia hemolítica, una afección grave que puede provocar debilidad, letargo, pérdida de apetito y, en casos severos, insuficiencia renal o incluso la muerte. Incluso pequeñas cantidades de cebolla pueden ser perjudiciales para los gatos, por lo que es esencial evitar que tengan acceso a cualquier alimento que contenga cebolla, ya sea cruda, cocida o en polvo, para garantizar su salud y bienestar."
     },
     {
         "id": 9,
         "nombre": "Chocolate",
-        "foto": "../assets/pez3.png",
         "info": false,
         "informar":"Los gatos no deben consumir chocolate debido a la presencia de teobromina, una sustancia química presente en el cacao que es tóxica para ellos. Los gatos son incapaces de metabolizar la teobromina de manera eficiente, lo que puede llevar a su acumulación en el cuerpo y causar diversos problemas de salud. La teobromina puede afectar el sistema nervioso central y el sistema cardiovascular de los gatos, provocando síntomas como vómitos, diarrea, temblores, convulsiones e incluso problemas cardíacos y respiratorios. Dependiendo de la cantidad y tipo de chocolate consumido, la ingestión de chocolate por parte de un gato puede resultar fatal. Por lo tanto, es fundamental mantener el chocolate fuera del alcance de los gatos y evitar que lo consuman en cualquier forma para proteger su salud y bienestar."
     },
     {
         "id": 10,
         "nombre": "Uva",
-        "foto": "../assets/pez4.png",
         "info": false,
         "informar":"Los gatos no deben consumir uvas ni pasas debido a su toxicidad potencial. Aunque no se comprende completamente por qué estas frutas son tóxicas para los felinos, se ha observado que incluso pequeñas cantidades pueden causar insuficiencia renal aguda en gatos. Los síntomas de la intoxicación por uvas o pasas pueden incluir vómitos, diarrea, letargo y disminución del apetito, y en casos graves puede provocar daño renal irreversible e incluso la muerte. Por lo tanto, es esencial evitar que los gatos tengan acceso a uvas y pasas en cualquier forma, ya sea frescas, secas o en jugos, para proteger su salud y bienestar."
     },
     {
         "id": 11,
         "nombre": "Aguacate",
-        "foto": "../assets/pez5.png",
         "info": false,
         "informar":"Los gatos no deben consumir aguacate debido a la presencia de una sustancia llamada persina, que se encuentra en todas las partes de la fruta, incluida la pulpa, la piel y el hueso. La persina es tóxica para los gatos y puede causar problemas gastrointestinales, como vómitos y diarrea, e incluso puede provocar daño cardíaco en casos graves. Además, el alto contenido de grasa en el aguacate puede ser difícil de digerir para los gatos y llevar a trastornos pancreáticos. Por lo tanto, es crucial evitar dar aguacate a los gatos y mantenerlo fuera de su alcance para garantizar su salud y bienestar."
     },
     {
         "id": 12,
         "nombre": "Naranja",
-        "foto": "../assets/pez6.png",
         "info": false,
         "informar":"Los gatos no deben comer naranja ni otros cítricos debido a su contenido de ácido cítrico, que puede causar malestar estomacal en los felinos. Además, las naranjas contienen aceites esenciales que son tóxicos para los gatos y pueden causar problemas digestivos y gastrointestinales, como vómitos y diarrea. Incluso la piel de la naranja puede contener sustancias químicas nocivas, como pesticidas, que podrían ser peligrosas para los gatos si se ingieren. Por lo tanto, es importante evitar darles naranjas u otros cítricos a los gatos y optar por alimentos adecuados para su dieta específica para garantizar su salud y bienestar."
     },
     {
         "id": 13,
         "nombre": "Limón",
-        "foto": "../assets/pez6.png",
         "info": false,
         "informar":"Los gatos no deben consumir limón ni ningún producto cítrico debido a su alto contenido de ácido cítrico, que puede causar irritación estomacal y gastrointestinal en los felinos. Además, los aceites esenciales presentes en los limones son tóxicos para los gatos y pueden provocar vómitos, diarrea e incluso problemas más graves como daño hepático o renal. Incluso la exposición a la cáscara de limón puede ser perjudicial para los gatos, ya que contiene sustancias químicas que pueden ser irritantes o tóxicas para su organismo. Por lo tanto, es fundamental mantener los limones y otros cítricos fuera del alcance de los gatos y evitar que los consuman en cualquier forma para proteger su salud y bienestar."
     }
